@@ -15,15 +15,3 @@ export const Nav = styled(Link)({
     color: "#ffffff",
   },
 });
-
-{
-  /*
-export const DrawerWrapper = styled(Box)({
-  display: "flex",
-  justifyContent: "space-between",
-  gap: 10,
-  flexDirection: "column",
-  padding: "2rem",
-});
-*/
-}

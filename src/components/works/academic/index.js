@@ -4,6 +4,7 @@ import AcademicWorksData from "../../../utils/academicData";
 
 const AcademicWorks = () => {
   const [websites, setWebsites] = useState(AcademicWorksData);
+  console.log(setWebsites);
   console.log(websites[0].image);
   return (
     <>

@@ -4,6 +4,7 @@ import UxCard from "../../card/uxCard";
 
 const UxWorks = () => {
   const [websites, setWebsites] = useState(UxWorksData);
+  console.log(setWebsites);
   console.log(websites[0].image);
   return (
     <>

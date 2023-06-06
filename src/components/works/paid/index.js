@@ -4,6 +4,7 @@ import PaidWorksData from "../../../utils/paidData";
 
 const PaidWorks = () => {
   const [websites, setWebsites] = useState(PaidWorksData);
+  console.log(setWebsites);
   console.log(websites[0].image);
   return (
     <>

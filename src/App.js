@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/leyout/header";
 import Footer from "./components/leyout/footer";
 import Skills from "./components/skills";
-import About from "./components/about";
 import Home from "./components/home";
 import { Element } from "react-scroll";
 import Contacts from "./components/contacts";

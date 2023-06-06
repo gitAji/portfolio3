@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ProjectCard from "../../card/websiteCard";
 import UxWorksData from "../../../utils/uxData";
 import UxCard from "../../card/uxCard";
 

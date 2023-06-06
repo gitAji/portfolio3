@@ -1,20 +1,11 @@
-import {
-  Box,
-  Button,
-  Card,
-  Paper,
-  Stack,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
-import intro from "../../assets/intro.png";
 import { theme } from "../../utils/theme";
 
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import { Link } from "react-router-dom";
-import { CTA } from "./styles";
+
 const Home = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (

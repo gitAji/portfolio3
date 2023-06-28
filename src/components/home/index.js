@@ -1,11 +1,11 @@
-import { Stack, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import { theme } from "../../utils/theme";
 
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import { Link } from "react-router-dom";
-
+import LaunchIcon from "@mui/icons-material/Launch";
 const Home = () => {
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   return (
@@ -43,6 +43,12 @@ const Home = () => {
             </Link>
             <Link to="tel:40071654">
               <CallIcon sx={{ color: "other.white" }} />
+            </Link>{" "}
+            <Link to="https://ajeecv.netlify.app/">
+              {" "}
+              <Button variant="outlined" startIcon={<LaunchIcon />}>
+                CV
+              </Button>
             </Link>
           </Stack>
         </Stack>

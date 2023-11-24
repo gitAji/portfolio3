@@ -61,7 +61,7 @@ const AcademicWorksData = [
     technologies: ["React", "MUI", "redux toolkit"],
     tools: ["Figma", "VSCode", "Netlify"],
     github_link: "https://github.com/gitAji/project-holidaze",
-    live_demo: " https://project-holidaze.netlify.app/",
+    live_demo: "https://presentation-onlineshop.netlify.app/",
   },
 ];
 

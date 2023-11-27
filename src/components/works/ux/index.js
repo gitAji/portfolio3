@@ -15,6 +15,8 @@ const UxWorks = () => {
           title={website.title}
           description={website.description}
           image={website.image}
+          ux={website.ux}
+          live={website.live_demo}
         />
       ))}
     </>

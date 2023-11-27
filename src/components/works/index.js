@@ -9,11 +9,11 @@ import TabPanel from "@mui/lab/TabPanel";
 import AcademicWorks from "./academic";
 import PaidWorks from "./paid";
 import UxWorks from "./ux";
-import { theme } from "../../utils/theme";
+import { darkTheme } from "../../utils/theme";
 
 const Works = () => {
   const [value, setValue] = useState("1");
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallScreen = useMediaQuery(darkTheme.breakpoints.down("md"));
 
   const handleChange = (event, newValue) => {
     setValue(newValue);

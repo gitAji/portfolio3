@@ -1,13 +1,13 @@
 import { Button, Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
-import { theme } from "../../utils/theme";
+import { darkTheme } from "../../utils/theme";
 
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import CallIcon from "@mui/icons-material/Call";
 import { Link } from "react-router-dom";
 import LaunchIcon from "@mui/icons-material/Launch";
 const Home = () => {
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallScreen = useMediaQuery(darkTheme.breakpoints.down("md"));
   return (
     <>
       <div id="home" className="home">

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import AppBar from "@mui/material/AppBar";
 import {
   Box,
@@ -11,93 +10,102 @@ import {
 } from "@mui/material";
 import { LogoImg, Nav } from "./styles";
 import logo from "../../../assets/logo.png";
-import { theme } from "../../../utils/theme";
+import { lightTheme, darkTheme } from "../../../utils/theme"; // Import the themes
 import MenuIcon from "@mui/icons-material/Menu";
+import { ThemeProvider } from "@mui/material/styles"; // Import ThemeProvider
 
 function Header() {
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallScreen = useMediaQuery(lightTheme.breakpoints.down("md"));
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const handleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
   return (
-    <AppBar>
-      <Toolbar
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          backgroundColor: "primary.main",
-          padding: ".4rem",
-        }}
-      >
-        <LogoImg src={logo} alt="logo" />
-        <Box
+    <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <AppBar>
+        <Toolbar
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            padding: "1rem",
+            backgroundColor: darkMode
+              ? darkTheme.palette.secondary.light
+              : lightTheme.palette.primary.main,
+            padding: ".4rem",
           }}
-        ></Box>
-        {!isSmallScreen ? (
-          <>
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 5,
-                fontWeight: "bold",
-              }}
-            >
-              <Nav to="home">Home</Nav>
-              <Nav to="skills">Skills</Nav>
-              <Nav to="works">Works</Nav>
-              <Nav to="contacts">Contacts</Nav>
-            </Box>
-            <Box
-              sx={{ display: "flex", justifyContent: "space-between", gap: 5 }}
-            >
-              <Switch />
-            </Box>
-          </>
-        ) : (
-          <>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Drawer open={mobileOpen} onClose={handleDrawerToggle}>
+        >
+          <LogoImg src={logo} alt="logo" />
+          {!isSmallScreen ? (
+            <>
               <Box
                 sx={{
                   display: "flex",
                   justifyContent: "space-between",
                   gap: 5,
-                  flexDirection: "column",
-                  padding: "1rem",
+                  fontWeight: "bold",
                 }}
               >
-                <Nav to="home" onClick={handleDrawerToggle}>
-                  Home
-                </Nav>
-                <Nav to="skills" onClick={handleDrawerToggle}>
-                  Skills
-                </Nav>
-                <Nav to="works" onClick={handleDrawerToggle}>
-                  Works
-                </Nav>
-                <Nav to="contacts" onClick={handleDrawerToggle}>
-                  Contacts
-                </Nav>
-                <Switch />
+                <Nav to="home">Home</Nav>
+                <Nav to="skills">Skills</Nav>
+                <Nav to="works">Works</Nav>
+                <Nav to="contacts">Contacts</Nav>
               </Box>
-            </Drawer>
-          </>
-        )}
-      </Toolbar>
-    </AppBar>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: 5,
+                }}
+              >
+                <Switch onChange={handleDarkMode} />
+              </Box>
+            </>
+          ) : (
+            <>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Drawer open={mobileOpen} onClose={handleDrawerToggle}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    gap: 5,
+                    flexDirection: "column",
+                    padding: "1rem",
+                  }}
+                >
+                  <Nav to="home" onClick={handleDrawerToggle}>
+                    Home
+                  </Nav>
+                  <Nav to="skills" onClick={handleDrawerToggle}>
+                    Skills
+                  </Nav>
+                  <Nav to="works" onClick={handleDrawerToggle}>
+                    Works
+                  </Nav>
+                  <Nav to="contacts" onClick={handleDrawerToggle}>
+                    Contacts
+                  </Nav>
+                  <Switch />
+                </Box>
+              </Drawer>
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
+    </ThemeProvider>
   );
 }
 
